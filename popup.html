@@ -10,7 +10,7 @@
   </head>
   <body>
     <main>
-      <h1>Metis for YouTube</h1>
+      <h1><img src="metis.svg" width="32" height="32" alt=""> Metis for YouTube</h1>
       <form id="filters">
         <fieldset id="filter-settings" disabled>
           <label class="check">
@@ -32,8 +32,14 @@
           </fieldset>
           <label class="check age">
             <input type="checkbox" name="ageEnabled" checked>
-            Hide videos older than two years
+            Filter by upload age
           </label>
+          <fieldset id="age-settings">
+            <label class="field">
+              Maximum upload age (years)
+              <input type="number" name="ageYears" value="2" min="1" step="1" required>
+            </label>
+          </fieldset>
           <button type="submit">Apply filters</button>
         </fieldset>
       </form>

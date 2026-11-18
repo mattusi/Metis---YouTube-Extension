@@ -13,11 +13,11 @@ Load the add-on again after restarting Firefox.
 
 ## Usage
 
-Metis hides videos older than two years. By default, it also hides videos you've started if you stopped before 25% or after 75%. Unwatched videos are exempt from the watch filter.
+By default, Metis hides videos older than two years. It also hides videos you've started if you stopped before 25% or after 75%. Unwatched videos are exempt from the watch filter.
 
-Open **Metis for YouTube** from the Extensions menu to change the range or turn off either filter. Click **Apply filters** to save.
+Open **Metis for YouTube** from the Extensions menu to change the watch range or maximum upload age in years, or to turn off either filter. Click **Apply filters** to save.
 
-The watch filter skips thumbnails without a progress bar. The age filter reads dates and English or Portuguese age labels. A label of "2 years ago" meets the cutoff.
+The watch filter skips thumbnails without a progress bar. The age filter reads dates and English or Portuguese age labels. A label of "2 years ago" meets the default cutoff.
 
 ## Development
 

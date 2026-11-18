@@ -16,6 +16,9 @@ main {
 }
 
 h1 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   margin: 0 0 1rem;
   font-size: 1.125rem;
 }
@@ -38,13 +41,15 @@ input[type="checkbox"] {
   margin: 0;
 }
 
-#watch-settings {
+#watch-settings,
+#age-settings {
   display: grid;
   gap: 0.625rem;
   padding: 0.625rem 0 0.875rem 1.4rem;
 }
 
-#watch-settings:disabled {
+#watch-settings:disabled,
+#age-settings:disabled {
   opacity: 0.55;
 }
 
@@ -76,7 +81,7 @@ button {
 }
 
 .age {
-  padding: 0.75rem 0;
+  padding-top: 0.75rem;
   border-top: 1px solid color-mix(in srgb, CanvasText 20%, Canvas);
 }
 

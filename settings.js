@@ -5,6 +5,7 @@ const defaultFilters = Object.freeze({
   lower: 25,
   upper: 75,
   ageEnabled: true,
+  ageYears: 2,
 });
 
 function normalizeFilters(saved) {
@@ -12,7 +13,11 @@ function normalizeFilters(saved) {
   const validRange = Number.isFinite(filters.lower) && Number.isFinite(filters.upper)
     && filters.lower >= 0 && filters.upper <= 100 && filters.lower <= filters.upper;
   if (!validRange) {
-    return { ...filters, lower: defaultFilters.lower, upper: defaultFilters.upper };
+    filters.lower = defaultFilters.lower;
+    filters.upper = defaultFilters.upper;
+  }
+  if (!Number.isInteger(filters.ageYears) || filters.ageYears < 1) {
+    filters.ageYears = defaultFilters.ageYears;
   }
 
   return filters;

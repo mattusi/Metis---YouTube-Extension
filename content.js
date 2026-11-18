@@ -75,27 +75,27 @@ function isOutsideWatchRange(card) {
     && (progress < filters.lower || progress > filters.upper);
 }
 
-function twoYearsBefore(now) {
+function yearsBefore(now, years) {
   const cutoff = new Date(now);
-  cutoff.setFullYear(cutoff.getFullYear() - 2);
+  cutoff.setFullYear(cutoff.getFullYear() - years);
   // Keep the cutoff in February when the current date is February 29.
   if (cutoff.getMonth() !== now.getMonth()) cutoff.setDate(0);
   return cutoff;
 }
 
-function isOldAgeLabel(label) {
+function isOldAgeLabel(label, ageYears) {
   if (!label) return false;
   const text = label.trim();
   const years = text.match(/\b(\d+)\s*(?:y|yrs?|years?)\s+ago$/i)
     ?? text.match(/\bhá\s+(\d+)\s+anos?$/i);
-  if (years) return Number(years[1]) >= 2;
+  if (years) return Number(years[1]) >= ageYears;
 
   const months = text.match(/\b(\d+)\s*(?:mos?|months?)\s+ago$/i)
     ?? text.match(/\bhá\s+(\d+)\s+(?:mês|meses)$/i);
-  return months !== null && Number(months[1]) >= 24;
+  return months !== null && Number(months[1]) >= ageYears * 12;
 }
 
-function isOlderThanTwoYears(card, cutoff) {
+function isOlderThanCutoff(card, cutoff, ageYears) {
   for (const date of card.querySelectorAll(publishedDateSelector)) {
     const value = date.getAttribute("datetime") ?? date.getAttribute("content");
     if (!/^\d{4}-\d{2}-\d{2}(?:T|$)/.test(value)) continue;
@@ -108,18 +108,19 @@ function isOlderThanTwoYears(card, cutoff) {
   }
 
   return Array.from(card.querySelectorAll(ageLabelSelector)).some((label) => (
-    !label.hidden && (isOldAgeLabel(label.getAttribute("aria-label")) || isOldAgeLabel(label.textContent))
+    !label.hidden && (isOldAgeLabel(label.getAttribute("aria-label"), ageYears)
+      || isOldAgeLabel(label.textContent, ageYears))
   ));
 }
 
 function flushCards() {
   scheduled = false;
-  const cutoff = twoYearsBefore(new Date());
+  const cutoff = yearsBefore(new Date(), filters.ageYears);
   for (const card of pendingCards) {
     if (!card.isConnected) continue;
     const hide = hasVideoLink(card) && (
       (filters.watchEnabled && isOutsideWatchRange(card))
-      || (filters.ageEnabled && isOlderThanTwoYears(card, cutoff))
+      || (filters.ageEnabled && isOlderThanCutoff(card, cutoff, filters.ageYears))
     );
     card.toggleAttribute("data-metis-hidden", hide);
   }

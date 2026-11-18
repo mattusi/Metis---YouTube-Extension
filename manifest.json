@@ -3,6 +3,10 @@
   "name": "Metis for YouTube",
   "version": "1.0.0",
   "description": "Hide YouTube videos by watch progress and upload age.",
+  "icons": {
+    "32": "metis.svg",
+    "64": "metis.svg"
+  },
   "permissions": ["storage"],
   "browser_specific_settings": {
     "gecko": {
@@ -13,6 +17,7 @@
     }
   },
   "action": {
+    "default_icon": "metis.svg",
     "default_title": "Metis for YouTube",
     "default_popup": "popup.html"
   },
