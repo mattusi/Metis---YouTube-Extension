@@ -1,18 +1,24 @@
 # Metis for YouTube
 
-A Firefox extension that hides video cards on desktop YouTube. The filters work on Home, search results, channel videos, and related recommendations as they load.
+A Firefox extension that filters videos on YouTube by age and watch progress.
 
-- **Watch progress.** By default, 0% and 25% through 75% stay visible under this rule. Videos with progress above 0% and below 25%, or above 75%, are hidden.
-- **Age.** Videos older than two years are hidden at any watch progress. When YouTube displays a relative age such as “2 years ago,” Metis uses the displayed value.
+## Installation
 
-Use the toolbar popup to change the watch range or turn either filter off. Choose **Apply filters** to update open YouTube tabs.
+1. Clone this repository or download and extract the ZIP.
+2. In Firefox, open `about:debugging` and choose **This Firefox**.
+3. Click **Load Temporary Add-on** and select `manifest.json`.
+4. Refresh YouTube.
 
-The watch rule uses the thumbnail resume bars YouTube shows for eligible videos when you’re signed in. The age rule recognizes exact dates when present and relative age labels in English and Portuguese. A rule skips cards that lack the data it needs. Filtering only changes what appears on the page. Settings are stored locally in Firefox. [YouTube’s video progress bar documentation](https://support.google.com/youtube/answer/7174115)
+Load the add-on again after restarting Firefox.
 
-## Try it in Firefox
+## Usage
 
-1. Open `about:debugging#/runtime/this-firefox` in Firefox.
-2. Click **Load Temporary Add-on…** and select `manifest.json` from this folder.
-3. Open or refresh YouTube. Find **Metis for YouTube** in the Extensions menu to open its popup.
+Metis hides videos older than two years. By default, it also hides videos you've started if you stopped before 25% or after 75%. Unwatched videos are exempt from the watch filter.
 
-Firefox removes the temporary add-on when it restarts. Permanent installation in standard Firefox requires Mozilla signing. [Firefox installation documentation](https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/)
+Open **Metis for YouTube** from the Extensions menu to change the range or turn off either filter. Click **Apply filters** to save.
+
+The watch filter skips thumbnails without a progress bar. The age filter reads dates and English or Portuguese age labels. A label of "2 years ago" meets the cutoff.
+
+## Development
+
+After editing the source, click **Reload** next to Metis in `about:debugging`, then refresh YouTube.
