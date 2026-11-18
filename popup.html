@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Metis for YouTube</title>
+    <link rel="stylesheet" href="popup.css">
+    <script src="settings.js" defer></script>
+    <script src="popup.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <h1>Metis for YouTube</h1>
+      <form id="filters">
+        <fieldset id="filter-settings" disabled>
+          <label class="check">
+            <input type="checkbox" name="watchEnabled" checked>
+            Filter by watch progress
+          </label>
+          <fieldset id="watch-settings" aria-label="Range to keep visible">
+            <p>Keep unwatched videos and videos in this range.</p>
+            <div class="limits">
+              <label class="field">
+                Lower limit (%)
+                <input type="number" name="lower" value="25" min="0" max="100" step="any" required>
+              </label>
+              <label class="field">
+                Upper limit (%)
+                <input type="number" name="upper" value="75" min="0" max="100" step="any" required>
+              </label>
+            </div>
+          </fieldset>
+          <label class="check age">
+            <input type="checkbox" name="ageEnabled" checked>
+            Hide videos older than two years
+          </label>
+          <button type="submit">Apply filters</button>
+        </fieldset>
+      </form>
+      <p id="status" role="status"></p>
+    </main>
+  </body>
+</html>

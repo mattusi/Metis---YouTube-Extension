@@ -1,0 +1,99 @@
+:root {
+  color-scheme: light dark;
+  font: 14px/1.4 system-ui, sans-serif;
+  color: CanvasText;
+  background: Canvas;
+  accent-color: #8b5cf6;
+}
+
+body {
+  margin: 0;
+  inline-size: 20rem;
+}
+
+main {
+  padding: 1rem 1.125rem 0.75rem;
+}
+
+h1 {
+  margin: 0 0 1rem;
+  font-size: 1.125rem;
+}
+
+fieldset {
+  min-inline-size: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+input[type="checkbox"] {
+  margin: 0;
+}
+
+#watch-settings {
+  display: grid;
+  gap: 0.625rem;
+  padding: 0.625rem 0 0.875rem 1.4rem;
+}
+
+#watch-settings:disabled {
+  opacity: 0.55;
+}
+
+#watch-settings p {
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+}
+
+.limits {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr));
+  gap: 0.5rem;
+}
+
+input[type="number"],
+button {
+  box-sizing: border-box;
+  inline-size: 100%;
+  padding: 0.45rem 0.6rem;
+  border: 1px solid color-mix(in srgb, CanvasText 30%, Canvas);
+  border-radius: 0.35rem;
+  font: inherit;
+}
+
+.age {
+  padding: 0.75rem 0;
+  border-top: 1px solid color-mix(in srgb, CanvasText 20%, Canvas);
+}
+
+button {
+  border-color: transparent;
+  color: white;
+  background: #6841c4;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:hover:enabled {
+  background: #5630ae;
+}
+
+#status {
+  margin: 0.4rem 0 0;
+  min-block-size: 1.4em;
+  font-size: 0.875rem;
+}

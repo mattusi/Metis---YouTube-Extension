@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "Metis for YouTube",
+  "version": "1.0.0",
+  "description": "Hide YouTube videos by watch progress and upload age.",
+  "permissions": ["storage"],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "metis-video-filter@local",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  },
+  "action": {
+    "default_title": "Metis for YouTube",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "js": ["settings.js", "content.js"],
+      "css": ["content.css"]
+    }
+  ]
+}
