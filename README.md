@@ -1,5 +1,7 @@
 # Metis for YouTube
 
+![Metis owl icon](./metis.svg)
+
 A Firefox extension that filters videos on YouTube by age and watch progress.
 
 ## Installation
